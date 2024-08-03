@@ -69,7 +69,7 @@ local function GetBall(ball)
       local PlayerDistance = (PlayerPP.Position - NearestPlayer.PrimaryPart.Position).Magnitude
       local BallDistance = (PlayerPP.Position - ball.Position).Magnitude
       
-      DetectSpamDistance = 25 + math.clamp(ParryCounter / 3, 0, 25)
+      DetectSpamDistance = 24 + math.clamp(ParryCounter / 3, 0, 25)
       
       if ParryCounter > 2 and PlayerDistance < DetectSpamDistance and BallDistance < 55 then
         getgenv().SpamClickA = true
@@ -107,7 +107,7 @@ Balls.ChildAdded:Connect(function(ball)
     return
   end
   
-  getgenv().SpamClickA = false
+  getgenv().SpamClickA = true
   ParryCounter = 0
   GetBall(ball)
 end)
